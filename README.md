@@ -66,6 +66,20 @@
   - Proteção do usuário root
   - IAM
     - Criação de usuários
+      - Para cada tipo de necessidade
     - Integração com outros sistemas de identidade
     - Controle multi-factor autentication (MFA)
+      - Para todos os tipos de usuários
     - Permissão no nível de arquivo (granularidade de permissionamento)
+
+## 13/08 - Continuação Security
+
+  - Permissionamento
+    - Identity Based Policy
+      - Permissão a nível de usuário, grupos ou roles dentro do IAM
+    - Resource Based Policy
+      - Permissão a nível de serviços da AWS
+    - A diferença no JSON seria a parte de determinar qual o user tem acesso ao permissionamento `"Principal": "*"`
+  - `"NotResource"` -> NEGAÇÃO DO RECURSO, ou seja, diz que não tem acesso a outros serviços tirando os que tiverem dentro desse campo
+
+  - 
