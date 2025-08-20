@@ -82,4 +82,6 @@
     - A diferença no JSON seria a parte de determinar qual o user tem acesso ao permissionamento `"Principal": "*"`
   - `"NotResource"` -> NEGAÇÃO DO RECURSO, ou seja, diz que não tem acesso a outros serviços tirando os que tiverem dentro desse campo
 
+## 20/08 - Storage Layer com S3
+
   - 
