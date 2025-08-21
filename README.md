@@ -26,7 +26,7 @@
   - Data Center:
     - Gerenciados somente por funcionários da AWS
   - AWS PoPs (CDN -> Cloud Front)
-    - É uma rede de datacenters que são espalhados pelo mundo que são pontos de presença
+    - É uma rede de datacenters espalhados pelo mundo que são pontos de presença
     - Edge Locations
       - Data centers e servidores que são localizados perto do consumidor
     - Regional Edge Cache
@@ -37,7 +37,7 @@
     - IaaS -> Infraestructure as a Service
       - Rede, computadores, parte física -> provida pela AWS
     - PaaS -> Plataform as a Service
-      - Serviços com o ambiente pré definido pela AWS, ou seja, a resposabilidade se volta pra cima do cloud provider
+      - Serviços com o ambiente pré-definido pela AWS, ou seja, a resposabilidade se volta pra cima do cloud provider
     - SaaS -> Software as a Service
       - Office 365, DocWorks, PowerBI, QuickSite
       - Dados e usuários, o resto será feito e gerenciado pela AWS
@@ -58,7 +58,7 @@
         - O que tem, O que vc sabe, O que vc é
       - Autorização:
         - Allow ou Deny 
-    - Cada chamada pra AWS ela valida a requisição com um algortimo interno pra fazer a autenticação em que impede ataques de heap play (sigv4)
+    - Cada chamada para AWS ela valida a requisição com um algortimo interno pra fazer a autenticação em que impede ataques de heap play (sigv4)
   - Principio do privilégio minimo
   - Rotacionamento de chaves
   - AWS Cloud Trail
@@ -84,4 +84,33 @@
 
 ## 20/08 - Storage Layer com S3
 
-  - 
+  - Simples Storage Service (S3):
+    - 3 tipos de armazenamento de dados:
+      1. Block Storage ⇾ dados são armazenados num dispositivo e o sistema fraciona o disco em sistemas menores
+      2. File Storage (Share) ⇾ dados são armazenados em arquivos hierarquicos (NFS/SMB) compartilhamento de disco, trocando arquivos através dele
+      3. Object Storage ⇾ dados são armazenados baseados em requisições subindo via `WEB` binário + metadados
+    - Não existe provisionamento desse serviço, é virtualmente ilimitado
+      - Número de arquivos ilimitados
+      - 5 TB máximo por objeto único
+      - Os objetos recebem uma URL pública, mas não exposta para internet
+      - URL única por conta que o nome do container está dentro da URL pública do serviço
+    - Sistema de prefixo ⇾ vira parte da URL bucket-name + prefix + file name
+    - Resiliência
+    - Disponibilidade
+    - Alta performace
+    - Multipart upload ⇾ melhor throughtput, somente pelo CLI
+      - TCP / BGP ⇾ protocolo de transporte via internet, acha o menor caminho até o destino
+      - Transfer acceleration ⇾ conecta até um Cloud Front edge location (CDN) e a partir da rede interna da aws
+      faz o upload para o s3
+    - Storage Classes ⇾ opções de armanezamento dos arquivos (custo e disponibilidade)
+  - Versioning no S3
+    - Não vem habilitado por padrão, uma vez habilitado, não pode desabilitar
+    - Custa a mais os valores, por duplicar, triplicar etc
+    - Só pode pausar o versionamento
+  - CORS (Cross-origin resource sharing)
+    - Validação do browser contra pishing
+    - Protege quando o site falso chame um site verdadeiro bb1.com.br ⇾ bb.com.br
+    - Relação de confiança entre front-back
+    - Configuração de domínio que podem acessar
+  - Por padrão, somente o criador do bucket que pode acessar ele
+    - Acesso configurável (via policy), podendo ser publico na internet
