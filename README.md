@@ -114,3 +114,29 @@
     - Configuração de domínio que podem acessar
   - Por padrão, somente o criador do bucket que pode acessar ele
     - Acesso configurável (via policy), podendo ser publico na internet
+
+## 03/09 - Compute Cloud (EC2)
+
+  - **De cima para baixo ⇾ maior gestão do cliente em cima dos processos**
+    - Elastic Compute Cloud (EC2) ⇾ "VM" e "BareMetal"
+      - Escala verticalmente
+      - Rápida provisão
+      - Hypervison abstrai uma camada de sistema operacional (XEN) para que
+      consiga rodar diversos SOs nos servidores
+      - On-demand ($$$), Reserved Instance ($$) e Spot-instance ($) `máquinas paradas`
+      - 
+    - EKS e ECS ⇾ Containers
+    - LighSail ⇾ Virtual Private Servers (VPS)
+    - Elastic Beanstalk ⇾ PaaS
+    - Lambda e Fargate ⇾ Serverless
+  - AMI
+  - Compute Optimizer
+
+
+
+
+
+
+
+
+
