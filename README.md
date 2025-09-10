@@ -132,6 +132,42 @@
   - AMI
   - Compute Optimizer
 
+## 10/09 - Continuação EC2
+
+  - Instance Store
+    - HD fisico colado na placa-mãe do servidor
+    - HD não pesistente, ou seja, se der stop na máquina ou terminate
+    perde todos os arquivos que estavam dentro do HD/SSD
+    - Bom para buffers, cache
+  - Amazon EBS ⇾ Elastic Block Storage
+    - Persiste
+    - Mover volume de uma máquina para outr 
+    - HD ⇾ SSD / sem necessitar de derrubar o servidor
+    - General Propose(gp2) ⇾ SSD
+    - Indicador de saúde ⇾ AWS notifica o usuário
+      - Backup ⇾ monitoramento de saúde dos HDs
+    - Associação 1:1, um volume ⇾ uma instância
+    - FileShare para EC2
+      - EBS não É um FileShare
+      - S3 não é um FileShare
+      - Amazon EFS (Elastic File System) e Amazon FSx 
+      - EFS:
+        - Somente em SO linux, utiliza NFSv4 e ainda não é suportado
+        pelo windows server.
+        - Escala automaticamente para suportar a quantidade necessária de
+        memória
+        - Leitura e Escrita no mesmo disco
+        - Copia em 3 AZs diferentes (mesma durabilidade do S3)
+        - Cria 3 redes em cada uma das AZs (replicação automática)
+      - Amazon FSx ⇾ FileShare Multi Proposito
+        - multi propostito:
+          - fsx for windows
+          - fsx for netapp
+          - fsx for openzfs
+            - fsx for luster HPC
+        - Não é elástico automaticamente
+        - 
+
 
 
 
