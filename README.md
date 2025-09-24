@@ -166,7 +166,27 @@
           - fsx for openzfs
             - fsx for luster HPC
         - Não é elástico automaticamente
-        - 
+## 24/09 - Creating a network environment
+
+  - VPC
+    - Subnet
+      - Privada (FileShare, DB etc)
+        - Totalmente isolada
+        - NAT (Network Address Translator) Gateway
+          - EC2(Subnet Privada) -> private subnet route 
+          table -> NAT Gateway (Subnet publica) -> public subnet route table -> internet gateway
+      - Publica
+        - Conecta com ‘internet’ via `internet gateway` (NAT Gateway)
+        - Necessita de um IP publico (elastic IP - ip elástico)
+  - Firewall
+    - Porta -> Recurso do sistema operacional que permite que um programa faça requisições para ‘internet’ 
+    - Proteção de rede
+    - Network Access Control List (NACL)
+      - Estatico e stateless
+    - Security Group
+      - Taggeia os pacotes, caso a conexão seja feita
+      - statefull
+    - 
 
 
 
