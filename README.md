@@ -5,6 +5,15 @@
 ## 30/07
 
 - Well Architect Framework
+  - Documento para seguir boas práticas para a AWS
+- Security Pilar
+- Cost Optimization Pilar
+- Sustainability Pilar Don't waste
+- EC2 Autoscaling
+  - In
+  - Out
+- Observabilidade
+  - Cloud Watch - logs
 - Trade-offs
 
 ## 06/08
@@ -166,7 +175,23 @@
           - fsx for openzfs
             - fsx for luster HPC
         - Não é elástico automaticamente
-## 24/09 - Creating a network environment
+
+## 17/09 - Creating a network environment
+
+  - AMI -> Basic, Silver, Golden (imagens de máquinas pré configuradas)
+  - Placement group
+  - Cluster -> Mesmo DataCenter, mesmo rack físico, alta performance
+    - Máquinas espelhadas
+  - Precificação
+    - On-demand
+    - Reserved Instances (reservar x instancias por x tempo)
+    - Saving Plans 
+    - Spot instnaces (usa máquinas ociosas, mas tem menos disponibiliade)
+  - VPC
+    - subnet está numa AZ e a VPC numa região
+    - Peering conection
+
+## 24/09 - Continuação networking
 
   - VPC
     - Subnet
@@ -179,15 +204,18 @@
         - Conecta com ‘internet’ via `internet gateway` (NAT Gateway)
         - Necessita de um IP publico (elastic IP - ip elástico)
   - Firewall
-    - Porta -> Recurso do sistema operacional que permite que um programa faça requisições para ‘internet’ 
+    - Porta ⇾ Recurso do sistema operacional que permite que um programa faça requisições para ‘internet’ 
     - Proteção de rede
     - Network Access Control List (NACL)
       - Estatico e stateless
     - Security Group
       - Taggeia os pacotes, caso a conexão seja feita
-      - statefull
-    - 
+      - Statefull
 
+## 01/10 - Continuação network
+
+  - Peering não é transitivo
+  - 
 
 
 
