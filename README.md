@@ -215,9 +215,59 @@
 ## 01/10 - Continuação network
 
   - Peering não é transitivo
-  - 
 
+## 08/10 - Securing User, Application and Data Access
 
+  - Athena = SQL no S3
+  - Kinesis = não é o kafka mas podia ser (Streaming da AWS)
+  - MSK ⇾ Kafka da gerenciado pela AWS
+  - RBAC (Role Based Access Control) x ABAC (Attribute Based Access Control)
+    - RBAC
+      - IAM ⇾ Policy's
+      - Permissionamento baseado na role do usuário
+      - User Group ⇾ padronização de permissionamento ⇾ herda permissão (permissionamento dado ao grupo),
+      um usuário pode estar em mais de um user group
+    - ABAC
+      - Além de associar permissionamento ao grupo, a permissão só vale se
+      o recurso da nuvem que estiver sendo utilizado somente se tiver um atributo em específico
+      - "Somente os servidores que tiverem a tag com chave valor OWNER:XPTO"
+      - Ou seja, o usuário precisa estar dentro da listagem de usuários dentro das tags
+  - Identidade Federada (Usuários federados)
+    - Login via Google
+    - IDP (Identity provider) ⇾ empresa terceira é responsável pela autenticação do usuário
+      - OpenID, SAML (Security Assertion Markup Language)
+    - Identity Center ⇾ antigo SSO
+    - Security Token Service (STS)
+      - Esse carinha possibilita que faça um user assumir uma role/credencial temporaria
+      - access-key, token-session
+    - AWS Cognito
+      - IDP da B2C ⇾ Business to customer
+      - Integração com o cognito, liberando o login via, google, meta etc ou SAML
+      - Autenticação, autorização e gerenciamento dos usuários
+    - AWS Organization
+      - Conta Root ⇾ Habilita o Organization
+        - Invite para as filhas
+        - Billing centralizado
+        - Desconto por volume
+        - Criação de unidade organizacionais (dev, hml, prd etc)
+      - Governança
+        - SCP's (Service Control Policies)
+        - Sobrescreve o acesso que o IAM deu
+        - Somente tira permissionamento
+        - Pode colocar em:
+          - Contas
+          - Unidade Organizacional
+          - Root (não usar aqui normalmente)
+      - Control Tower ⇾ PCI Cartão de crédito
+  - Criptografia Simétrica x Assimétrica
+    - Simétrica
+      - Chave única (tranca e destranca a informação)
+    - Assimétrica
+      - Public key / Private Key
+  - Criptografia Server-side
+  - S3SSE-KMS
+    - Criptografia e descriptografia do Key Managment Server
+    - Data Key nunca sai do KMS
 
 
 
