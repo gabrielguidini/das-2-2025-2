@@ -269,7 +269,23 @@
     - Criptografia e descriptografia do Key Managment Server
     - Data Key nunca sai do KMS
 
+## 15/10 - Cloud Watch
 
+## 21/10 - 
+
+## 29/10 - Caching content
+
+  - CloudFront
+    - CDN (Content delivery network)
+    - Diminuição da distância entre cliente - servidor
+      - Edge Location (cache regional) -> Cache missing -> CloudFront Regional
+      -> Cache Missing -> Servidor (para recuperar a info que não estava cacheado) 
+      - O mesmo conteúdo vai estar disponível na 1° Edge Location
+  - Elastic Cache
+    - Database layer cache - acelerar consulta no banco de dados
+    - Redução de custo do banco de dados
+    - Memcached
+    - Redis
 
 
 
